@@ -1,0 +1,11 @@
+body{
+    background-color: aqua;
+    font-family: Arial, sans-serif;
+}
+h1{
+    text-align: center;
+}
+
+.navbar-brand{
+    margin-right: 40px;
+}

@@ -3,6 +3,8 @@
 {% block menu %}
     <p><a class="navbar-brand" href="{% url 'webapp:update_view' product.pk%}">Update</a></p>
     <p><a class="navbar-brand" href="{% url 'webapp:delete_view' product.pk%}">Delete</a></p>
+    <p><a class="navbar-brand" href="{% url 'webapp:review_create' product.pk%}">Create-review</a></p>
+{#    <p><a class="navbar-brand" href="{% url 'webapp:review_update' product.pk%}">Update-review</a></p>#}
 {% endblock %}
 {% block content %}
     <div class="row">
@@ -18,8 +20,16 @@
         {% else %}
             <img src="{% static 'img/1234255.jpg' %}" alt="prod_pic" class="avatar">
         {% endif %}
-{#                        <p class="card-text">author: {{  }}</p>#}
-{#                        <p class="card-text">data: {{ task.date }}</p>#}
+
+                        {% for prod in product.products.all %}
+                            <p>автор: {{ prod.author }}</p>
+                            <p>отзыв: {{ prod.review }}</p>
+                            <p>mail: {{ prod.author.email }}</p>
+                            <p>оценка: {{ prod.assessment }}</p>
+                            <p><a class="navbar-brand" href="{% url 'webapp:review_update' prod.pk%}">Update</a></p>
+                            <p><a class="navbar-brand" href="{% url 'webapp:review_delete' prod.pk%}">Delete</a></p>
+                            <hr>
+                    {% endfor %}
                     </div>
                 </div>
             </div>

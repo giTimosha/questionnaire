@@ -37,7 +37,7 @@ class Product(models.Model):
 
 
 class Review(models.Model):
-    author = models.ForeignKey(User, related_name= 'users', on_delete=models.CASCADE, verbose_name='автор')
+    author = models.ForeignKey(User, related_name='users', on_delete=models.CASCADE, verbose_name='автор')
     product = models.ForeignKey('webapp.Product', related_name='products', on_delete=models.CASCADE,
                                 verbose_name='товар')
     review = models.TextField(max_length=600, verbose_name='текст отзыва')

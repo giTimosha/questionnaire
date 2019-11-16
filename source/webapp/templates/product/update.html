@@ -3,6 +3,6 @@
 {% block content %}
     <h1>Update Product</h1>
     <form method="POST" action="{% url "webapp:update_view" product.pk %}">
-        {% include 'partial/product_form.html' with button_text="Update" %}
+        {% include 'partial/form.html' with button_text="Update" %}
     </form>
 {% endblock %}
