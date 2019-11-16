@@ -12,7 +12,15 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-{% block menu %}{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <p><a class="navbar-brand" href="{% url 'webapp:index' %}">Home</a></p>
+    {% block menu %}{% endblock %}
+    {% block menu_links %}{% endblock %}
+{#  <div class="collapse navbar-collapse" id="navbarSupportedContent">#}
+{#  </div>#}
+</nav>
+
 <div class="container">
     {% block content %}{% endblock %}
 </div>

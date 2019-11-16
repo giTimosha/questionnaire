@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block menu %}
+    <p><a class="navbar-brand" href="{% url 'webapp:update_view' product.pk%}">Update</a></p>
+    <p><a class="navbar-brand" href="{% url 'webapp:delete_view' product.pk%}">Delete</a></p>
+{% endblock %}
+{% block content %}
+    <div class="row">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-text">{{ product.name }}</h3>
+                        <p class="card-text">category: {{ product.category }}</p>
+                        <p class="card-text">description: {{ product.description }}</p>
+                        <p class="card-text">photo: {{ product.photo }}</p>
+                        {% if product.picture %}
+            <img src="{{ product.picture.url }}" alt="prod_pic" class="avatar">
+        {% else %}
+            <img src="{% static 'img/1234255.jpg' %}" alt="prod_pic" class="avatar">
+        {% endif %}
+{#                        <p class="card-text">author: {{  }}</p>#}
+{#                        <p class="card-text">data: {{ task.date }}</p>#}
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}
